@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  receipt_no: MyString
+  receipt_date: MyString
+  receipt_sendor: MyString
+  receipt_receiver: MyString
+
+two:
+  receipt_no: MyString
+  receipt_date: MyString
+  receipt_sendor: MyString
+  receipt_receiver: MyString

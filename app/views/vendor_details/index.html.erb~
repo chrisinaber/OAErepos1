@@ -1,0 +1,67 @@
+<h1>ICT:VENDOR DETAIL</h1>
+</br>
+
+<% if @vendor_details.length > 0 %>
+<%= form_tag(search_vendor_details_path,method: "get",
+                               id: "search") do %>
+
+<fieldeset>
+  <%= text_field_tag(:query) %> 
+  <%= submit_tag("Search") %>
+</fieldset>
+<% end %>
+
+<table>
+  <tr>
+    <th>Vendor ID</th>
+    <th>Vendor name</th>
+    <th>Vendor address</th>
+    <th>Vendor telephone</th>
+    <th>Vendor email</th>
+    <th>Vendor comment</th>
+    <th>Search</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+<% @vendor_details.each do |vendor_detail| %>
+ 	<tr class="data">
+            <td class="vendor_id"><%= vendor_detail.vendor_id %></td>
+            <td class="vendor_name"><%= vendor_detail.vendor_name %></td>
+            <td class="vendor_address"><%= vendor_detail.vendor_address %></td>
+            <td class="vendor_telephone"><%= vendor_detail.vendor_telephone %></td>
+	    <td class="vendor_email"><%= vendor_detail.vendor_email %></td>
+	    <td class="vendor_comment"><%= vendor_detail.vendor_comment %></td>
+	    <td><%= link_to(image_tag('Search-icon.png', alt: 'Show',
+                                      title: 'Show details', border: '0'),
+                            vendor_detail_path(vendor_detail, page: @vendor_details.current_page))
+            %></td>
+            <td><%= link_to(image_tag('edit.png', alt: 'Edit',
+                                      title: 'Edit item', border: '0'),
+                            edit_vendor_detail_path(vendor_detail, page: @vendor_details.current_page))
+            %></td>
+            <td><%= link_to(image_tag('destroy.gif', alt: 'Destroy',
+                                      title: 'Destroy item', border: '0'),
+                            vendor_detail_path(vendor_detail, page: @vendor_details.current_page),
+                            data: {confirm: 'Are you sure?'},
+                            method: :delete)
+            %></td>
+          </tr>
+ <% end %>
+
+      </tbody>
+
+    </table>
+<% end %>
+<br/>
+
+<div class="digg_pagination">
+  <div>
+    <%= page_entries_info @vendor_detail %>
+  </div>
+  <%= will_paginate @vendor_detail, container: false %>
+</div>
+
+
+<%= link_to 'New Vendor detail', new_vendor_detail_path %>
+

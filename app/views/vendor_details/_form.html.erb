@@ -1,0 +1,41 @@
+<%= form_for(@vendor_detail) do |f| %>
+  <% if @vendor_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendor_detail.errors.count, "error") %> prohibited this vendor_detail from being saved:</h2>
+
+      <ul>
+      <% @vendor_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :vendor_id %><br />
+    <%= f.text_field :vendor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor_name %><br />
+    <%= f.text_field :vendor_name %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor_address %><br />
+    <%= f.text_field :vendor_address %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor_telephone %><br />
+    <%= f.text_field :vendor_telephone %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor_email %><br />
+    <%= f.text_field :vendor_email %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor_comment %><br />
+    <%= f.text_field :vendor_comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

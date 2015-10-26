@@ -1,0 +1,299 @@
+
+ # Code New OAE_procurement
+
+>> rails generate
+>> table Project_detail <<
+
+rails generate scaffold Project_detail project_id project_name project_year:integer budgettype_id vender_id contract_id contract_date:date 
+
+>>Vendor_detail<<
+
+rails generate scaffold Vendor_detail vendor_id vendor_name vendor_address vendor_telephone vendor_email vendor_comment 
+
+
+>>Delivery_detail<<
+
+rails generate scaffold Delivery_detail delivery_no:integer division_id:integer emptype_id:integer emptype_amount:float
+
+
+>>Equipment_detail<<
+
+rails generate scaffold Equipment_detail kurupan_no:integer EqmType_id:integer running_no project_id:integer quaintity_emp:float status_detail ICT_price:float bidding_price:float vendor_id:integer receipt_no:integer emp_brand emp_version spec_cpu spec_hd spec_ram mornitor_brand mornitor_version mornitor_SN1 mornitor_SN2 Eqm_SN1 Eqm_SN2 Eqm_SN3 Eqm_SN4 user_name delivery_no:integer record_person record_date:date remakes
+
+>> user 
+
+rails generate scaffold User surname firstname email 
+
+
+
+>> user_detail 
+
+rails generate User_detail surname login salt crypted_password
+ 
+
+
+
+
+
+class CreateProjectDetails < ActiveRecord::Migration
+  def change
+    create_table :project_details do |t|
+      t.string :project_id, null: false
+      t.string :project_name, null: false
+      t.inteher :project_year, null: false
+      t.string :budgettype_id
+      t.string :vender_id
+      t.string :contract_id
+      t.date :contract_date
+
+      t.timestamps, null: false
+    end
+   add_index :project_details, :project_id
+  
+  end
+end
+
+
+
+*** Old Layout 
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OAEProcurement</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
+
+
+
+OAE_Project_detail controller  @ 14 -9 2015
+
+
+class ProjectDetailsController < ApplicationController
+before_filter :set_current_page, except: [:index]
+  # GET /project_details
+  # GET /project_details.json
+  def index
+    @project_detail = ProjectDetail.paginate(page: params[:page],
+                             per_page: params[:per_page])
+                   .order('project_id')
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @project_details }
+    end
+  end
+
+# GET /project_details/search
+ def search
+    @project_detail = ProjectDetail.paginate(page: params[:page],
+                             per_page: params[:per_page])
+                   .order('project_id')
+    render 'index'   
+ end
+
+
+  # GET /project_details/1
+  # GET /project_details/1.json
+  def show
+    @project_detail = ProjectDetail.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @project_detail }
+    end
+  end
+
+  # GET /project_details/new
+  # GET /project_details/new.json
+  def new
+    @project_detail = ProjectDetail.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @project_detail }
+    end
+  end
+
+  # GET /project_details/1/edit
+  def edit
+    @project_detail = ProjectDetail.find(params[:id])
+  end
+
+  # POST /project_details
+  # POST /project_details.json
+  def create
+    @project_detail = ProjectDetail.new(params[:project_detail])
+
+    respond_to do |format|
+      if @project_detail.save
+        format.html { redirect_to(project_detail_url(@project_detail, page: @current_page),
+                                  notice: 'Project detail was successfully created.') }
+
+        format.json { render json: @project_detail, status: :created, location: @project_detail }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @project_detail.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /project_details/1
+  # PUT /project_details/1.json
+  def update
+    @project_detail = ProjectDetail.find(params[:id])
+
+    respond_to do |format|
+      if @project_detail.update_attributes(params[:project_detail])
+        format.html { redirect_to(project_detail_url(@project_detail, page: @current_page),
+                                  notice: 'Project detail was successfully updated.') }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @project_detail.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  # DELETE /project_details/1
+  # DELETE /project_details/1.json
+  def destroy
+    @project_detail = ProjectDetail.find(params[:id])
+    @project_detail.destroy
+
+    respond_to do |format|
+      format.html { redirect_to project_details_url(page: @current_page) }
+      format.json { head :no_content }
+    end
+  end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  
+  def set_current_page
+    @current_page = params[:page] || 1
+ end
+end
+
+<%= link_to 'New Project Detail', new_project_detail_path(page: @project_details.current_page) %>
+
+
+<%= link_to(image_tag('destroy.gif', alt: 'New Project Detail',
+                                      title: 'Add New Item'),'New Project Detail', new_project_detail_path(page: @project_details.current_page) %>
+
+
+
+
+Vendor - Paginate
+>>> Begin *******
+<% @vendor_details.each do |vendor_detail| %>
+ 	<tr class="data">
+            <td class="vendor_id"><%= vendor_detail.vendor_id %></td>
+            <td class="vendor_name"><%= vendor_detail.vendor_name %></td>
+            <td class="vendor_address"><%= vendor_detail.vendor_address %></td>
+            <td class="vendor_telephone"><%= vendor_detail.vendor_telephone %></td>
+	    <td class="vendor_email"><%= vendor_detail.vendor_email %></td>
+	    <td class="vendor_comment"><%= vendor_detail.vendor_comment %></td> 
+           
+            <td><%= link_to(image_tag('Search-icon.png', alt: 'Show',
+                                      title: 'Show details', border: '0'),
+                            vendor_detail_path(vendor_detail, page: @vendor_details.current_page))
+            %></td>
+            <td><%= link_to(image_tag('edit.png', alt: 'Edit',
+                                      title: 'Edit item', border: '0'),
+                            edit_vendor_detail_path(vendor_detail, page: @vendor_details.current_page))
+            %></td>
+            <td><%= link_to(image_tag('destroy.gif', alt: 'Destroy',
+                                      title: 'Destroy item', border: '0'),
+                            vendor_detail_path(vendor_detail, page: @vendor_details.current_page),
+                            data: {confirm: 'Are you sure?'},
+                            method: :delete)
+            %></td>
+          </tr>
+
+
+ <p align = "left"><%= link_to(image_tag('Add-icon0.png', alt: 'New Vendor Detail',
+          title: 'Add New Item'),new_vendor_detail_path(page: @vendor_details.current_page)) %>
+ <th> Add New Vendor Detail</th>
+ </p>
+>>> End *******
+
+
+<!Try> 
+
+ <p align = "left"><%= link_to(image_tag('Add-icon0.png', alt: 'New Vendor Detail',
+          title: 'Add New Item'),new_vendor_details_path(page: @vendor_details.current_page)) %>
+ <th> Add New Vendor Detail</th>
+ </p>
+
+
+>>This code how to link to other tabe 
+
+
+ <% if (project_detail.vendor_id)%>
+               <td><%= link_to "#{project_detail.vendor_detail.vendor_name}", vendor_detail_path(project_detail.vendor_id) %></td>
+               <% else%>
+                <td> Anonymous</td>
+               <% end%>
+
+
+<!--Add-->
+
+  <div class="field">
+    <%= label_tag 'vendor_id',"Vendor_id"%><br />
+    <%= text_field_tag 'vendor_id'%>
+  </div>
+
+>>>Code For List Drop down select
+add this in _form 
+
+   <div class="control-label">
+    <%=f.label :Filed-that-want-t-show , class :'control-label'%>
+   <div class = "controls">
+    <%= collection_select( :table invoice, :filed_id empoyeename , TableofFiled.all, :id, name, {},    { :multiple => false }) %>
+   </div>
+</div>
+
+Status
+
+  <div class="field">
+    <%= f.label :status_detail %><br />
+    <%= f.text_field :status_detail %>
+  
+  </div>
+
+
+<div class="field">"
+    <%= f.label "Status", class: 'control-label'%>
+    <div class="control">
+    <%= f.select(:status_detail, option_for_select([["Good","Good"],["Not Good"],["Not Good"]]) ) %> 
+    </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

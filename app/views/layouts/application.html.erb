@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OAE Procurement</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="<%= params[:controller].parameterize %>_controller">
+
+<div class="header">
+  <%= render :partial => 'sessions/login' %>
+  <div class="navigation">
+    <%= render_navigation %>
+    <!%=image_tag("look.gif")%>
+  </div>
+
+  <% flash.each do |key, value| %>
+        <span class="flash_<%= key %>">
+          <span class="flash_message"><%= value %></span>
+        </span>
+  <% end %>
+
+</div>
+<div class="content">
+  <%= yield %>
+</div>
+
+<div id="footer">
+</div>
+
+</body>
+</html>

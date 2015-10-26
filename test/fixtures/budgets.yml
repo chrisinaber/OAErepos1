@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  budgettype_id: MyString
+  budgettype_name: MyString
+
+two:
+  budgettype_id: MyString
+  budgettype_name: MyString

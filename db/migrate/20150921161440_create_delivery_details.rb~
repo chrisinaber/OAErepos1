@@ -1,0 +1,12 @@
+class CreateDeliveryDetails < ActiveRecord::Migration
+  def change
+    create_table :delivery_details do |t|
+      t.string :delivery_no
+      t.string :division_id
+      t.string :emptype_id
+      t.Float :emptype_amount
+
+      t.timestamps
+    end
+  end
+end

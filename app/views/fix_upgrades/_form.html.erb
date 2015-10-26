@@ -1,0 +1,33 @@
+<%= form_for(@fix_upgrade) do |f| %>
+  <% if @fix_upgrade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fix_upgrade.errors.count, "error") %> prohibited this fix_upgrade from being saved:</h2>
+
+      <ul>
+      <% @fix_upgrade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :kurupan_no %><br />
+    <%= f.text_field :kurupan_no %>
+  </div>
+  <div class="field">
+    <%= f.label :dateof_work %><br />
+    <%= f.date_select :dateof_work %>
+  </div>
+  <div class="field">
+    <%= f.label :detail_fix_upgrade %><br />
+    <%= f.text_field :detail_fix_upgrade %>
+  </div>
+  <div class="field">
+    <%= f.label :payment %><br />
+    <%= f.text_field :payment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

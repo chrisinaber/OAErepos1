@@ -1,0 +1,77 @@
+<h1>Listing delivery_details</h1>
+</br>
+
+<! add "Search"> 
+<% if @delivery_details.length > 0 %>
+<%= form_tag(search_delivery_details_path,method: "get",
+                               id: "search") do %>
+<fieldeset>
+  <%= text_field_tag(:query) %> 
+  <%= submit_tag("Search") %>
+</fieldset>
+<% end %>
+
+<table>
+  <tr>
+    <th>Delivery no</th>
+    <th>Division</th>
+    <th>Emptype</th>
+    <th>Emptype amount</th>
+    <th>Search</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+<% @delivery_details.each do |delivery_detail| %>
+  <tr>
+
+    <td><%= delivery_detail.delivery_no %></td>
+    <td><%= delivery_detail.division_id %></td>
+    <td><%= delivery_detail.emptype_id %></td>
+    <td><%= delivery_detail.emptype_amount %></td>
+    
+    
+    <td><p align="center"><%= link_to(image_tag('Search-icon.png', alt: 'Show',
+                                      title: 'Show details', border: '0'),
+                           delivery_detail_path(delivery_detail, page: @delivery_details.current_page))%>
+    </p></td>
+
+  
+    <td><p align="center"><%= link_to(image_tag('edit.png', alt: 'Edit',
+                                      title: 'Edit item', border: '0'),
+                            edit_delivery_detail_path(delivery_detail, page: @delivery_details.current_page))%>
+    </p></td>
+
+
+    <td><p align="center"><%= link_to(image_tag('destroy.gif', alt: 'Destroy',
+                                      title: 'Destroy item', border: '0'),
+                            delivery_detail_path(delivery_detail, page: @delivery_details.current_page),
+                            data: {confirm: 'Are you sure?'},
+                            method: :delete)%>
+    </p></td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Delivery detail', new_delivery_detail_path %>
+<br />
+
+<!Add Paginate>
+<div class="digg_pagination">
+  <div>
+    <%= page_entries_info @delivery_details %>
+  </div>
+  <%= will_paginate @delivery_details, container: false %>
+</div>
+
+<!Try> 
+
+ <p align = "left"><%= link_to(image_tag('Add-icon0.png', alt: 'New Delivery Detail',
+          title: 'Add New Item'),new_delivery_detail_path(page: @delivery_details.current_page)) %>
+ <th> Add New Delivery Detail</th>
+ </p>
+<% end %>
+

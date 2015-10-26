@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  receipt_detail_id: MyString
+  eqmtype_id: MyString
+  eqmtype_amount: MyString
+  eqmtype_priceunit: MyString
+
+two:
+  receipt_detail_id: MyString
+  eqmtype_id: MyString
+  eqmtype_amount: MyString
+  eqmtype_priceunit: MyString

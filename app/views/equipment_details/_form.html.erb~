@@ -1,0 +1,134 @@
+<%= form_for(@equipment_detail) do |f| %>
+  <% if @equipment_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipment_detail.errors.count, "error") %> prohibited this equipment_detail from being saved:</h2>
+
+      <ul>
+      <% @equipment_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :kurupan_no %><br />
+    <%= f.number_field :kurupan_no %>
+  </div>
+  <div class="field">
+    <%= f.label :EqmType_id %><br />
+    <%= f.number_field :EqmType_id %>
+  </div>
+  <div class="field">
+    <%= f.label :running_no %><br />
+    <%= f.text_field :running_no %>
+  </div>
+
+  <div class="field">
+    <%= f.label :project_id %><br />
+    <%= f.collection_select :project_id,ProjectDetail.order(:project_id),:project_id,:project_id,
+                             include_blank:true %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :quaintity_emp %><br />
+    <%= f.text_field :quaintity_emp %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status_detail %><br />
+    <%= f.text_field :status_detail %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :ICT_price %><br />
+    <%= f.text_field :ICT_price %>
+  </div>
+  <div class="field">
+    <%= f.label :bidding_price %><br />
+    <%= f.text_field :bidding_price %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor_id %><br />
+    <%= f.number_field :vendor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :receipt_no %><br />
+    <%= f.number_field :receipt_no %>
+  </div>
+  <div class="field">
+    <%= f.label :emp_brand %><br />
+    <%= f.text_field :emp_brand %>
+  </div>
+  <div class="field">
+    <%= f.label :emp_version %><br />
+    <%= f.text_field :emp_version %>
+  </div>
+  <div class="field">
+    <%= f.label :spec_cpu %><br />
+    <%= f.text_field :spec_cpu %>
+  </div>
+  <div class="field">
+    <%= f.label :spec_hd %><br />
+    <%= f.text_field :spec_hd %>
+  </div>
+  <div class="field">
+    <%= f.label :spec_ram %><br />
+    <%= f.text_field :spec_ram %>
+  </div>
+  <div class="field">
+    <%= f.label :mornitor_brand %><br />
+    <%= f.text_field :mornitor_brand %>
+  </div>
+  <div class="field">
+    <%= f.label :mornitor_version %><br />
+    <%= f.text_field :mornitor_version %>
+  </div>
+  <div class="field">
+    <%= f.label :mornitor_SN1 %><br />
+    <%= f.text_field :mornitor_SN1 %>
+  </div>
+  <div class="field">
+    <%= f.label :mornitor_SN2 %><br />
+    <%= f.text_field :mornitor_SN2 %>
+  </div>
+  <div class="field">
+    <%= f.label :Eqm_SN1 %><br />
+    <%= f.text_field :Eqm_SN1 %>
+  </div>
+  <div class="field">
+    <%= f.label :Eqm_SN2 %><br />
+    <%= f.text_field :Eqm_SN2 %>
+  </div>
+  <div class="field">
+    <%= f.label :Eqm_SN3 %><br />
+    <%= f.text_field :Eqm_SN3 %>
+  </div>
+  <div class="field">
+    <%= f.label :Eqm_SN4 %><br />
+    <%= f.text_field :Eqm_SN4 %>
+  </div>
+  <div class="field">
+    <%= f.label :user_name %><br />
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_no %><br />
+    <%= f.number_field :delivery_no %>
+  </div>
+  <div class="field">
+    <%= f.label :record_person %><br />
+    <%= f.text_field :record_person %>
+  </div>
+  <div class="field">
+    <%= f.label :record_date %><br />
+    <%= f.date_select :record_date %>
+  </div>
+  <div class="field">
+    <%= f.label :remakes %><br />
+    <%= f.text_field :remakes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

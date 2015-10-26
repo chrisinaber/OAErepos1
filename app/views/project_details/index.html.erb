@@ -1,0 +1,81 @@
+<h1> OAE ICT PROJECT DETAIL </h1>
+</br>
+<!Copy from csa Try for add "Search"> 
+<% if @project_details.length > 0 %>
+<%= form_tag(search_project_details_path,method: "get",
+                               id: "search") do %>
+<fieldeset>
+  <%= text_field_tag(:query) %> 
+  <%= submit_tag("Search") %>
+</fieldset>
+<% end %>
+
+<!Copy from csa>
+<table>
+  <tr>
+    <th>Project_ID &nbsp</th>
+    <th>Project Name &nbsp</th>
+    <th>Project year &nbsp</th>
+    <th>Budgettype &nbsp</th>
+    <th>Vendor_ID &nbsp</th>
+    <th>Contract &nbsp</th>
+    <th>Contract date &nbsp</th>
+    <th>Search</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+<% @project_details.each do |project_detail| %>
+ 	<tr class="data">
+            <td class="project_id"><%= project_detail.project_id %></td>
+            <td class="project_name"><%= project_detail.project_name %></td>
+            <td class="project_year"><%= project_detail.project_year %></td>
+            <td class="budgettype_id"><%= project_detail.budgettype_id %></td>
+	    
+ 
+<!add link Relationshipto Vendor >
+               <% if (project_detail.vendor_id)%>
+               <td><%= link_to "#{project_detail.vendor_detail.vendor_name}", vendor_detail_path(project_detail.vendor_id) %></td>
+               <% else%>
+                <td> Anonymous</td>
+               <% end%>
+
+	    <td class="contract_id"><%= project_detail.contract_id %></td>
+	    <td class="contract_date"><%= project_detail.contract_date %></td>
+            <td><p align="center"><%= link_to(image_tag('Search-icon.png', alt: 'Show',
+                                      title: 'Show details', border: '0'),
+                            project_detail_path(project_detail, page: @project_details.current_page))
+            %></p></td>
+            <td><p align="center"><%= link_to(image_tag('edit.png', alt: 'Edit',
+                                      title: 'Edit item', border: '0'),
+                            edit_project_detail_path(project_detail, page: @project_details.current_page))
+            %></p></td>
+            <td><p align="center"><%= link_to(image_tag('destroy.gif', alt: 'Destroy',
+                                      title: 'Destroy item', border: '0'),
+                            project_detail_path(project_detail, page: @project_details.current_page),
+                            data: {confirm: 'Are you sure?'},
+                            method: :delete)
+            %></p></td>
+          </tr>
+      <% end %>
+
+      </tbody>
+
+    </table>
+<% end %>
+<br/>
+
+<div class="digg_pagination">
+  <div>
+    <%= page_entries_info @project_detail %>
+  </div>
+  <%= will_paginate @project_detail, container: false %>
+</div>
+
+<!Try> 
+
+ <p align = "left"><%= link_to(image_tag('Add-icon0.png', alt: 'New Project Detail',
+          title: 'Add New Item'),new_project_detail_path(page: @project_details.current_page)) %>
+ <th> Add New Project Detail</th>
+ </p>
+  

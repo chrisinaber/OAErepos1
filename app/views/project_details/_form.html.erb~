@@ -1,0 +1,51 @@
+<%= form_for(@project_detail) do |f| %>
+  <% if @project_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project_detail.errors.count, "error") %> prohibited this project_detail from being saved:</h2>
+
+      <ul>
+      <% @project_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+     <%= hidden_field_tag 'page', @current_page %>
+
+  <div class="field">
+    <%= f.label :project_id %><br />
+    <%= f.text_field :project_id %>
+  </div>
+  <div class="field">
+    <%= f.label :project_name %><br />
+    <%= f.text_field :project_name %>
+  </div>
+  <div class="field">
+    <%= f.label :project_year %><br />
+    <%= f.text_field :project_year %>
+  </div>
+  <div class="field">
+    <%= f.label :budgettype_id %><br />
+    <%= f.text_field :budgettype_id %>
+  </div>
+
+  <div class="field">
+    <%= f.collection_select :vendor_id,VendorDetail.order(:vendor_name),:vendor_id,:vendor_name,
+                             include_blank:true %><br />
+    
+  </div>
+
+  
+
+  <div class="field">
+    <%= f.label :contract_id %><br />
+    <%= f.text_field :contract_id %>
+  </div>
+  <div class="field">
+    <%= f.label :contract_date %><br />
+    <%= f.date_select :contract_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

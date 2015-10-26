@@ -1,0 +1,42 @@
+<h1> Project details </h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @project_detail.project_id %>
+</p>
+
+<p>
+  <strong>Project name:</strong>
+  <%= @project_detail.project_name %>
+</p>
+
+<p>
+  <strong>Project year:</strong>
+  <%= @project_detail.project_year %>
+</p>
+
+<p>
+  <strong>Budgettype:</strong>
+  <%= @project_detail.budgettype_id %>
+</p>
+
+<p>
+<strong>Vender:</strong>
+  <%= @project_detail.vendor_id %>
+</p>
+
+
+<p>
+  <strong>Contract:</strong>
+  <%= @project_detail.contract_id %>
+</p>
+
+<p>
+  <strong>Contract date:</strong>
+  <%= @project_detail.contract_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_detail_path(@project_detail, page: @current_page) %> |
+<%= link_to 'Back', project_details_path(page: @current_page) %>

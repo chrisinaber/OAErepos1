@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  kurupan_no: 1
+  EqmType_id: 1
+  running_no: MyString
+  project_id: 1
+  quaintity_emp: 1.5
+  status_detail: MyString
+  ICT_price: 1.5
+  bidding_price: 1.5
+  vendor_id: 1
+  receipt_no: 1
+  emp_brand: MyString
+  emp_version: MyString
+  spec_cpu: MyString
+  spec_hd: MyString
+  spec_ram: MyString
+  mornitor_brand: MyString
+  mornitor_version: MyString
+  mornitor_SN1: MyString
+  mornitor_SN2: MyString
+  Eqm_SN1: MyString
+  Eqm_SN2: MyString
+  Eqm_SN3: MyString
+  Eqm_SN4: MyString
+  user_name: MyString
+  delivery_no: 1
+  record_person: MyString
+  record_date: 2015-09-22
+  remakes: MyString
+
+two:
+  kurupan_no: 1
+  EqmType_id: 1
+  running_no: MyString
+  project_id: 1
+  quaintity_emp: 1.5
+  status_detail: MyString
+  ICT_price: 1.5
+  bidding_price: 1.5
+  vendor_id: 1
+  receipt_no: 1
+  emp_brand: MyString
+  emp_version: MyString
+  spec_cpu: MyString
+  spec_hd: MyString
+  spec_ram: MyString
+  mornitor_brand: MyString
+  mornitor_version: MyString
+  mornitor_SN1: MyString
+  mornitor_SN2: MyString
+  Eqm_SN1: MyString
+  Eqm_SN2: MyString
+  Eqm_SN3: MyString
+  Eqm_SN4: MyString
+  user_name: MyString
+  delivery_no: 1
+  record_person: MyString
+  record_date: 2015-09-22
+  remakes: MyString

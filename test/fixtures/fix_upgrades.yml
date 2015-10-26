@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  kurupan_no: MyString
+  dateof_work: 2015-10-21
+  detail_fix_upgrade: MyString
+  payment: 1.5
+
+two:
+  kurupan_no: MyString
+  dateof_work: 2015-10-21
+  detail_fix_upgrade: MyString
+  payment: 1.5

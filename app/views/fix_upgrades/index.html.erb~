@@ -1,0 +1,61 @@
+<h1>Fix&Upgrades</h1>
+<% if @fix_upgrades.length > 0 %>
+<%= form_tag(search_fix_upgrades_path,method: "get",
+                               id: "search") do %>
+
+<fieldeset>
+  <%= text_field_tag(:query) %> 
+  <%= submit_tag("Search") %>
+</fieldset>
+<% end %>
+
+<table>
+  <tr>
+    <th>Kurupan no</th>
+    <th>Date of work</th>
+    <th>Detail of fix&upgrade</th>
+    <th>Payment</th>
+    <th>Search</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+<% @fix_upgrades.each do |fix_upgrade| %>
+
+<tr class="data">
+            <td class="kurupan_no"><%= fix_upgrade.kurupan_no %></td>
+            <td class="dateof_work"><%= fix_upgrade.dateof_work %></td>
+            <td class="detail_fix_upgrade"><%= fix_upgrade.detail_fix_upgrade %></td>
+            <td class="payment"><%= fix_upgrade.payment %></td>
+	    <td><%= link_to(image_tag('Search-icon.png', alt: 'Show',
+                                      title: 'Show details', border: '0'),
+                            fix_upgrade_path(fix_upgrade, page: @fix_upgrades.current_page))
+            %></td>
+            <td><%= link_to(image_tag('edit.png', alt: 'Edit',
+                                      title: 'Edit item', border: '0'),
+                            edit_fix_upgrade_path(fix_upgrade, page: @fix_upgrades.current_page))
+            %></td>
+            <td><%= link_to(image_tag('destroy.gif', alt: 'Destroy',
+                                      title: 'Destroy item', border: '0'),
+                            fix_upgrade_path(fix_upgrade, page: @fix_upgrades.current_page),
+                            data: {confirm: 'Are you sure?'},
+                            method: :delete)
+            %></td>
+          </tr>
+ <% end %>
+
+      </tbody>
+
+    </table>
+<% end %>
+<br/>
+
+<div class="digg_pagination">
+  <div>
+    <%= page_entries_info @fix_upgrade %>
+  </div>
+  <%= will_paginate @fix_upgrade, container: false %>
+</div>
+
+<%= link_to 'New fix_upgrade detail', new_fix_upgrade_path %>
+

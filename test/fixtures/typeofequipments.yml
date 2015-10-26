@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  eqmcategory_id: MyString
+  eqmtype_id: MyString
+  eqmtype_name: MyString
+
+two:
+  eqmcategory_id: MyString
+  eqmtype_id: MyString
+  eqmtype_name: MyString

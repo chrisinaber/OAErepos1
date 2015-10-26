@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  kurupan_no: MyString
+  dateof_upgrade: MyString
+  detailof_upgrade: MyString
+  paymentof_upgrade: MyString
+
+two:
+  kurupan_no: MyString
+  dateof_upgrade: MyString
+  detailof_upgrade: MyString
+  paymentof_upgrade: MyString

@@ -1,0 +1,120 @@
+<h1>OAE : Equipment_details</h1>
+</br>
+
+<!Copy from csa Try for add "Search"> 
+<% if @equipment_details.length > 0 %>
+<%= form_tag(search_equipment_details_path,method: "get",
+                               id: "search") do %>
+<fieldeset>
+  <%= text_field_tag(:query) %> 
+  <%= submit_tag("Search") %>
+</fieldset>
+<% end %>
+
+<table>
+   
+<% @equipment_details.each do |equipment_detail| %>
+  <tr>
+
+    <th>Kurupan no</th>
+    <th>Eqmtype</th>
+    <th>Running no</th>
+    <th>Project</th>
+    <th>Quaintity emp</th>
+    <th>Status detail</th>
+    <th>Ict price</th>
+    
+</tr>
+<tr>
+    <td><%= equipment_detail.kurupan_no %></td>
+    <td><%= equipment_detail.eqmtype_id %></td>
+    <td><%= equipment_detail.running_no %></td>
+    <td><%= equipment_detail.project_id %></td>
+    <td><%= equipment_detail.quaintity_emp %></td>
+    <td><%= equipment_detail.status_detail %></td>
+    <td><%= equipment_detail.ict_price %></td>
+</tr>
+
+<tr>
+    <th>Bidding price</th>
+    <th>Vendor</th>
+    <th>Receipt no</th>
+    <th>Emp brand</th>
+    <th>Emp version</th>
+    <th>Spec cpu</th>
+    <th>Spec hd</th>
+</tr>
+<tr>
+    <td><%= equipment_detail.bidding_price %></td>
+    <td><%= equipment_detail.vendor_id %></td>
+    <td><%= equipment_detail.receipt_no %></td>
+    <td><%= equipment_detail.emp_brand %></td>
+    <td><%= equipment_detail.emp_version %></td>
+    <td><%= equipment_detail.spec_cpu %></td>
+    <td><%= equipment_detail.spec_hd %></td>
+</tr>
+<tr>
+    <th>Spec ram</th>
+    <th>Mornitor brand</th>
+    <th>Mornitor version</th>
+    <th>Mornitor sn1</th>
+    <th>Mornitor sn2</th>
+    <th>Eqm sn1</th>
+    <th>Eqm sn2</th>
+</tr>
+<tr>
+    <td><%= equipment_detail.spec_ram %></td>
+    <td><%= equipment_detail.mornitor_brand %></td>
+    <td><%= equipment_detail.mornitor_version %></td>
+    <td><%= equipment_detail.mornitor_sn1 %></td>
+    <td><%= equipment_detail.mornitor_sn2 %></td>
+    <td><%= equipment_detail.eqm_sn1 %></td>
+    <td><%= equipment_detail.eqm_sn2 %></td>
+</tr>
+<tr>
+    <th>Eqm sn3</th>
+    <th>Eqm sn4</th>
+    <th>User name</th>
+    <th>Delivery no</th>
+    <th>Record person</th>
+    <th>Record date</th>
+    <th>Remakes</th>
+</tr>
+<tr>
+    <td><%= equipment_detail.eqm_sn3 %></td>
+    <td><%= equipment_detail.eqm_sn4 %></td>
+    <td><%= equipment_detail.user_name %></td>
+    <td><%= equipment_detail.delivery_no %></td>
+    <td><%= equipment_detail.record_person %></td>
+    <td><%= equipment_detail.record_date %></td>
+    <td><%= equipment_detail.remakes %></td>
+</tr>
+</table>
+</br>
+</br>
+<table>
+<tr>
+    <td><%= link_to 'New Equipment detail', new_equipment_detail_path %></td>
+    <td><%= link_to 'Show', equipment_detail_path(equipment_detail) %></td>
+    <td><%= link_to 'Edit', edit_equipment_detail_path(equipment_detail) %></td>
+    <td><%= link_to 'Destroy', equipment_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+</table>
+<% end %>
+<br />
+
+<!Add Paginate>
+<div class="digg_pagination">
+  <div>
+    <%= page_entries_info @equipment_details %>
+  </div>
+  <%= will_paginate @equipment_details, container: false %>
+</div>
+
+<!Try> 
+
+ <p align = "left"><%= link_to(image_tag('Add-icon0.png', alt: 'New Equipment Detail',
+          title: 'Add New Item'),new_equipment_detail_path(page: @equipment_details.current_page)) %>
+ <th> Add New Equipment Detail</th>
+ </p>
+<% end %>

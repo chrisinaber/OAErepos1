@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  division_id: MyString
+  division_name: MyString
+  div_short_name: MyString
+  div_location: MyString
+
+two:
+  division_id: MyString
+  division_name: MyString
+  div_short_name: MyString
+  div_location: MyString

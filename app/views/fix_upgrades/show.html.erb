@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Kurupan no:</b>
+  <%= @fix_upgrade.kurupan_no %>
+</p>
+
+<p>
+  <b>Dateof work:</b>
+  <%= @fix_upgrade.dateof_work %>
+</p>
+
+<p>
+  <b>Detail fix upgrade:</b>
+  <%= @fix_upgrade.detail_fix_upgrade %>
+</p>
+
+<p>
+  <b>Payment:</b>
+  <%= @fix_upgrade.payment %>
+</p>
+
+
+<%= link_to 'Edit', edit_fix_upgrade_path(@fix_upgrade) %> |
+<%= link_to 'Back', fix_upgrades_path %>

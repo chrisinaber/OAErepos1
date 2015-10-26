@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  kurupan_no: MyString
+  dateof_fix: MyString
+  detailof_fix: MyString
+  paymentof_fix: MyString
+
+two:
+  kurupan_no: MyString
+  dateof_fix: MyString
+  detailof_fix: MyString
+  paymentof_fix: MyString

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  delivery_no: 1
+  division_id: 1
+  emptype_id: 1
+  emptype_amount: 1.5
+
+two:
+  delivery_no: 1
+  division_id: 1
+  emptype_id: 1
+  emptype_amount: 1.5

@@ -1,0 +1,33 @@
+<%= form_for(@delivery_detail) do |f| %>
+  <% if @delivery_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@delivery_detail.errors.count, "error") %> prohibited this delivery_detail from being saved:</h2>
+
+      <ul>
+      <% @delivery_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :delivery_no %><br />
+    <%= f.number_field :delivery_no %>
+  </div>
+  <div class="field">
+    <%= f.label :division_id %><br />
+    <%= f.number_field :division_id %>
+  </div>
+  <div class="field">
+    <%= f.label :emptype_id %><br />
+    <%= f.number_field :emptype_id %>
+  </div>
+  <div class="field">
+    <%= f.label :emptype_amount %><br />
+    <%= f.text_field :emptype_amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

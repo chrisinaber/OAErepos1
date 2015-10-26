@@ -1,0 +1,32 @@
+<h1> OAE PROCUREMENT SYSTEMS </h1>
+<br>
+<p>
+  <table>
+  <tr>
+<td>
+     <%=image_tag("IT-pro.jpg")%>
+</td>
+<td>
+  <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login</h1>
+<br>
+
+<!%= form_tag session_path do %>
+  <div>
+    <%= label_tag 'login', 'Login' %><br />
+    <%= text_field_tag 'login', params[:login], id: 'login-input', autofocus: 'autofocus' %>
+  </div>
+  <div>
+    <%= label_tag 'password', 'Password' %><br />
+    <%= password_field_tag 'password' %><br /><br />
+  </div>
+  <div>
+    <%= submit_tag 'Login'  %> 
+    
+  </div>
+<!% end %>
+   
+</td>    
+  </tr>
+  </table>
+</p>
+

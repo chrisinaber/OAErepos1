@@ -1,0 +1,27 @@
+<h1> Delivery details </h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Delivery no:<strong>
+  <%= @delivery_detail.delivery_no %>
+</p>
+
+<p>
+  <b>Division:</b>
+  <%= @delivery_detail.division_id %>
+</p>
+
+<p>
+  <b>Emptype:</b>
+  <%= @delivery_detail.emptype_id %>
+</p>
+
+<p>
+  <b>Emptype amount:</b>
+  <%= @delivery_detail.emptype_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_delivery_detail_path(@delivery_detail) %> |
+<%= link_to 'Back', delivery_details_path %>
